@@ -113,7 +113,7 @@ Properties & Effects:
 
 width: 100%; padding: 12px;
 
-background-color: #27ae60; – Green success color
+background-color: #47c3ec; – BLUE success color
 
 color: white; border: none; border-radius: 5px;
 
