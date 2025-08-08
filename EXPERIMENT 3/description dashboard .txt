@@ -1,0 +1,131 @@
+ADMIN DASHBOARD TEST CASES & VALIDATIONS
+1. FIELD: Username
+Requirement: Required – field cannot be empty
+Only alphabets, numbers, underscores allowed (no spaces)
+Pattern = [A-Za-z0-9_]+
+
+VALID INPUTS:
+"admin_01"
+"SuperUser123"
+
+INVALID INPUTS:
+"admin user" – Contains space
+"admin@" – Contains special character
+" " (empty) – Required field
+
+2. FIELD: Password
+Requirement: Required – field cannot be empty
+Must be at least 8 characters, include at least one number, one uppercase, one lowercase, and one special character
+Pattern (example): Complex regex like (?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@#$%^&+=!]).{8,}
+
+VALID INPUTS:
+"Admin@123"
+"SecurePass1#"
+
+INVALID INPUTS:
+"admin" – Too short and weak
+"Admin123" – Missing special character
+" " – Empty field
+
+3. FIELD: Role Selection
+Requirement: Required – must choose a role (Admin, Editor, Viewer)
+Usually implemented with a <select> dropdown or radio buttons
+
+VALID INPUTS:
+"Admin"
+"Viewer"
+
+INVALID INPUTS:
+" " – No option selected
+"Superadmin" – Invalid option not in the list
+
+4. FIELD: Login Timestamp (Auto-Filled)
+Requirement: Optional (read-only) – Auto-filled with current date & time
+Used for admin activity logs
+Should be non-editable by user
+
+VALID INPUTS:
+"2025-08-07 10:22:35"
+
+INVALID INPUTS:
+"manual entry" – Not allowed if user can type
+" " – Should auto-fill, not blank
+
+5. FORM SUBMISSION:
+Submit with all valid inputs → Dashboard access granted
+Invalid fields or missing inputs → Block submission, show validation errors
+
+CSS STYLING BREAKDOWN: A STRUCTURED OVERVIEW
+1. ELEMENT: body (Page Background)
+Purpose: Set the background of the dashboard view
+Property: background-color: #f4f7f9;
+Effect: Light gray background for a clean and modern UI
+Property: margin: 0; padding: 0;
+Effect: Removes default spacing
+
+2. ELEMENT: .dashboard-container (Main Wrapper)
+Purpose: Holds the entire admin panel
+Properties & Effects:
+
+display: flex; – Enables side-by-side layout
+
+min-height: 100vh; – Full screen height
+
+background-color: #fff; – Clean content area
+
+3. ELEMENT: .sidebar (Navigation Menu)
+Purpose: Left-side navigation for dashboard modules
+Properties & Effects:
+
+width: 220px; – Fixed width
+
+background-color: #2c3e50; – Dark tone for contrast
+
+color: #ecf0f1; – Light text for readability
+
+padding: 20px;
+
+4. ELEMENT: .header (Top Bar)
+Purpose: Displays user info, notifications, logout
+Properties & Effects:
+
+height: 60px;
+
+background-color: #34495e;
+
+color: white;
+
+display: flex; justify-content: space-between; align-items: center; padding: 0 20px;
+
+5. ELEMENT: .content-area (Main Display Panel)
+Purpose: Shows main dashboard modules (e.g. analytics, users)
+Properties & Effects:
+
+flex-grow: 1; – Takes remaining space
+
+padding: 30px;
+
+background-color: #f9f9f9;
+
+6. ELEMENT: .btn-submit (Login Button)
+Purpose: Final login/submit button
+Properties & Effects:
+
+width: 100%; padding: 12px;
+
+background-color: #27ae60; – Green success color
+
+color: white; border: none; border-radius: 5px;
+
+font-size: 18px; margin-top: 10px;
+
+LEARNING OUTCOMES
+1. Learnt how to build a structured Admin Dashboard login interface
+
+2. Implemented form validations for secure login
+
+3. Applied conditional field restrictions (read-only, dropdowns)
+
+4. Designed and styled the layout using modern dashboard CSS structure
+
+5. Understood flex layout, sidebar, top bar, and content responsiveness

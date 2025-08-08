@@ -1,0 +1,151 @@
+BANKING UI TEST CASES & VALIDATIONS
+1. FIELD: Account Holder Name
+Requirement: Required – field cannot be empty
+Only uppercase and lowercase alphabets and spaces allowed
+Pattern = [A-Za-z\s]+
++ means one or more characters required
+
+VALID INPUTS:
+"Ramesh Kumar"
+"Anjali Sharma"
+
+INVALID INPUTS:
+"Ramesh123" – Contains numbers, should trigger pattern mismatch
+"anjali_sharma" – Contains underscore (invalid character)
+"@Ramesh" – Contains special character
+
+2. FIELD: Account Number
+Requirement: Required – cannot be empty
+Only numeric values allowed, 10 to 16 digits
+Pattern = [0-9]{10,16}
+
+VALID INPUTS:
+"1234567890"
+"9876543210987654"
+
+INVALID INPUTS:
+ "12345" – Too short
+ "abc1234567" – Contains letters
+ "12345678901234567890" – Too long
+
+3. FIELD: Email
+Requirement: Required – field cannot be empty
+Must follow standard email format like example@domain.com
+
+VALID INPUTS:
+ "user@bank.com"
+ "account.holder@secure.co.in"
+
+INVALID INPUTS:
+ "user.bank.com" – Missing @
+ "user@.com" – Missing domain name
+ "user@bank,com" – Comma instead of dot
+
+4. FIELD: IFSC Code
+Requirement: Required – cannot be empty
+Format must be 4 capital letters + 0 + 6 digits
+Pattern = ^[A-Z]{4}0[0-9]{6}$
+
+VALID INPUTS:
+  "SBIN0123456"
+  "ICIC0001234"
+
+INVALID INPUTS:
+"SBI0123456" – Only 3 letters
+ "SBIN01234A6" – Contains letter in digit section
+ "SBIN_012345" – Contains invalid underscore
+
+5. FIELD: Transaction Amount
+Requirement: Required – cannot be empty
+Must be numeric, greater than 0
+
+VALID INPUTS:
+100
+5000.75
+
+INVALID INPUTS:
+ " " (empty) – Required error
+ 0 – Should be greater than zero
+ "abc" – Not a number
+
+6. FORM SUBMISSION:
+Submit with all valid fields → Success
+Submit with 1 or more invalid fields → Form blocked, browser shows validation messages
+
+CSS Styling Breakdown
+1. ELEMENT: body (Page Background)
+Purpose: Sets overall background of the page
+Property: background-color: #e0f7fa;
+Effect: Soft, calming light blue color
+Property: margin-top: 20vh;
+Effect: Pushes form down by 20% of screen height
+
+2. ELEMENT: .bank-form-container (Main Form Wrapper)
+Purpose: Container styling for the form
+Properties & Effects:
+
+background-color: #ffffff; – Clean white background
+
+margin: 40px auto; – Centered on page
+
+padding: 25px 35px; – Spacious layout
+
+border-radius: 10px; – Soft, rounded edges
+
+box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); – Light shadow for depth
+
+max-width: 500px; – Prevents excessive width
+
+3. ELEMENT: .form-header (Form Title Section)
+Purpose: Aligns form heading
+Property: text-align: center;
+Effect: Centers the heading/title
+
+4. ELEMENT: .form-group (Label-Input Pairs)
+Purpose: Separates fields clearly
+Property: margin-bottom: 18px;
+Effect: Adds spacing between inputs
+
+5. ELEMENT: .form-group input (Input Fields)
+Purpose: Styles all input fields
+Properties & Effects:
+
+width: 100%; – Full width fields
+
+padding: 10px; – Comfortable spacing
+
+border: 1px solid #ccc; – Light gray border
+
+border-radius: 5px; – Slight rounding
+
+font-size: 16px; – Readable input text
+
+6. ELEMENT: .btn-submit (Submit Button)
+Purpose: Styles the "Submit" button
+Properties & Effects:
+
+width: 100%; – Full width button
+
+padding: 12px; – Large clickable area
+
+background-color: #00796b; – Distinct greenish-blue
+
+color: white; – White text
+
+border: none; – Clean, borderless look
+
+border-radius: 5px; – Rounded edges
+
+font-size: 18px; – Prominent button text
+
+margin-top: 10px; – Adds space above the button
+
+LEARNING OUTCOMES
+How to create a Banking UI form
+
+Learnt how to use HTML5 form validations
+
+How to write and apply test cases for form fields
+
+Styled the form using CSS for clarity and UX
+
